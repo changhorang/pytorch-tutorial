@@ -12,6 +12,7 @@ class EncoderCNN(nn.Module):
         self.resnet = nn.Sequential(*modules)
         self.linear = nn.Linear(renet.fc.in_features, embed_size)
         self.bn = nn.BatchNorm1d(embed_size, momentum = 0.01)
+        ### linear층 추가
         self.linear2 = nn.Linear(renet.fc.in_features, embed_size)
         self.bn2 = nn.BatchNorm1d(embed_size, momentum = 0.01)
 
@@ -30,6 +31,7 @@ class DecorderRNN(nn.Module):
         self.embed = nn.Embedding(vocab_size, embed_size)
         self.lstm = nn.LSTM(embed_size, hidden_size, num_layers, batch_first = True)
         self.linear = nn.Linear(hidden_size, vocab_size)
+        ### linear층 추가
         self.linear2 = nn.Linear(hidden_size, vocab_size)
         self.max_seg_length = max_seq_length
 

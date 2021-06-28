@@ -22,6 +22,7 @@ def main(args):
     transform = transforms.Compose([
         transforms.RandomCrop(args.crop_size),
         transforms.RandomHorizontalFlip(),
+        ### VertivalFlip module 추가
         transforms.RandomVerticalFlip(),
         transforms.ToTensor(),
         transforms.Normalize((0.485, 0.456, 0.406),
